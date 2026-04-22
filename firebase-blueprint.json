@@ -1,0 +1,118 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "User profile information and statistics",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "username": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "photoURL": { "type": "string", "format": "uri" },
+        "bio": { "type": "string" },
+        "joinDate": { "type": "string", "format": "date-time" },
+        "reputation": { "type": "number" },
+        "level": { "type": "string", "enum": ["Beginner Thinker", "Analyst", "Strategist", "Decision Master"] },
+        "stats": {
+          "type": "object",
+          "properties": {
+            "totalDecisions": { "type": "number" },
+            "totalProblems": { "type": "number" },
+            "successRate": { "type": "number" },
+            "communityAgreement": { "type": "number" }
+          }
+        }
+      },
+      "required": ["uid", "name", "username", "email", "joinDate", "reputation", "level"]
+    },
+    "Decision": {
+      "title": "Decision",
+      "description": "A decision post with AI analysis and community voting",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userPhoto": { "type": "string" },
+        "question": { "type": "string" },
+        "options": { "type": "array", "items": { "type": "string" } },
+        "analysis": { "type": "object" },
+        "votes": { "type": "object" },
+        "voters": { "type": "array", "items": { "type": "string" } },
+        "isPublic": { "type": "boolean" },
+        "allowVoting": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "outcome": { "type": "string", "enum": ["Yes", "No", "Partially"] }
+      },
+      "required": ["userId", "question", "analysis", "isPublic", "createdAt"]
+    },
+    "Problem": {
+      "title": "Problem",
+      "description": "A problem post with AI analysis and community advice",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userPhoto": { "type": "string" },
+        "description": { "type": "string" },
+        "analysis": { "type": "object" },
+        "isPublic": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "commentsCount": { "type": "number" }
+      },
+      "required": ["userId", "description", "analysis", "isPublic", "createdAt"]
+    },
+    "Comment": {
+      "title": "Comment",
+      "description": "A community comment on a post",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userPhoto": { "type": "string" },
+        "postId": { "type": "string" },
+        "content": { "type": "string" },
+        "upvotes": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "postId", "content", "createdAt"]
+    },
+    "Thought": {
+      "title": "Thought",
+      "description": "A private thought analysis",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "thoughtText": { "type": "string" },
+        "analysis": { "type": "object" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "thoughtText", "analysis", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profiles"
+    },
+    "/decisions/{decisionId}": {
+      "schema": "Decision",
+      "description": "Decision posts"
+    },
+    "/problems/{problemId}": {
+      "schema": "Problem",
+      "description": "Problem posts"
+    },
+    "/comments/{commentId}": {
+      "schema": "Comment",
+      "description": "Post comments"
+    },
+    "/thoughts/{thoughtId}": {
+      "schema": "Thought",
+      "description": "Private user thoughts"
+    }
+  }
+}
