@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Routes, Route, Navigate, Link, useLocation } f
 import { motion, AnimatePresence } from "motion/react";
 import { Brain, MessageSquare, Compass, User, ChevronRight, LogOut, Plus, Telescope, History } from "lucide-react";
 import { cn } from "@/src/lib/utils";
-import { DecisionPage } from "./pages/Decision";
-import { ProblemPage } from "./pages/Problem";
-import { ExplorePage } from "./pages/Explore";
-import { ProfilePage } from "./pages/Profile";
-import { PostDetailPage } from "./pages/PostDetail";
-import { ThoughtExplorerPage } from "./pages/ThoughtExplorer";
+import { DecisionPage } from "./Decision";
+import { ProblemPage } from "./Problem";
+import { ExplorePage } from "./Explore";
+import { ProfilePage } from "./Profile";
+import { PostDetailPage } from "./PostDetail";
+import { ThoughtExplorerPage } from "./ThoughtExplorer";
 import { Auth } from "./components/Auth";
 import { Header } from "./components/Header";
 import { auth, db, handleFirestoreError, OperationType } from "./lib/firebase";
