@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate, Link, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { Brain, MessageSquare, Compass, User, ChevronRight, LogOut, Plus, Telescope, History } from "lucide-react";
 import { cn } from "@/src/lib/utils";
@@ -240,25 +240,23 @@ export default function App() {
 
   return (
     <ErrorBoundary>
-      <Router>
-        <div className="min-h-screen bg-background text-foreground flex flex-col">
-          <Header />
-          <div className="flex flex-col md:flex-row flex-grow">
-            <Sidebar onLogout={handleLogout} />
-            <main className="flex-grow md:pl-26 xl:pl-64 pt-[92px] md:pt-[136px] pb-16 md:pb-0">
-              <Routes>
-                <Route path="/" element={<Navigate to="/explore" replace />} />
-                <Route path="/decision" element={<DecisionPage />} />
-                <Route path="/problem" element={<ProblemPage />} />
-                <Route path="/thought-explorer" element={<ThoughtExplorerPage />} />
-                <Route path="/explore" element={<ExplorePage />} />
-                <Route path="/explore/:type/:id" element={<PostDetailPage />} />
-                <Route path="/profile" element={<ProfilePage />} />
-              </Routes>
-            </main>
-          </div>
+      <div className="min-h-screen bg-background text-foreground flex flex-col">
+        <Header />
+        <div className="flex flex-col md:flex-row flex-grow">
+          <Sidebar onLogout={handleLogout} />
+          <main className="flex-grow md:pl-26 xl:pl-64 pt-[92px] md:pt-[136px] pb-16 md:pb-0">
+            <Routes>
+              <Route path="/" element={<Navigate to="/explore" replace />} />
+              <Route path="/decision" element={<DecisionPage />} />
+              <Route path="/problem" element={<ProblemPage />} />
+              <Route path="/thought-explorer" element={<ThoughtExplorerPage />} />
+              <Route path="/explore" element={<ExplorePage />} />
+              <Route path="/explore/:type/:id" element={<PostDetailPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+            </Routes>
+          </main>
         </div>
-      </Router>
+      </div>
     </ErrorBoundary>
   );
 }
