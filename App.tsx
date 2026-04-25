@@ -9,12 +9,12 @@ import { ExplorePage } from "./Explore";
 import { ProfilePage } from "./Profile";
 import { PostDetailPage } from "./PostDetail";
 import { ThoughtExplorerPage } from "./ThoughtExplorer";
-import { Auth } from "./components/Auth";
-import { Header } from "./components/Header";
+import { Auth } from "./Auth";
+import { Header } from "./Header";
 import { auth, db, handleFirestoreError, OperationType } from "./lib/firebase";
 import { onAuthStateChanged, signOut, User as FirebaseUser } from "firebase/auth";
 import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
-import { ErrorBoundary } from "./components/ErrorBoundary";
+import { ErrorBoundary } from "./ErrorBoundary";
 
 const Onboarding = ({ onComplete }: { onComplete: () => void }) => {
   const [step, setStep] = useState(0);
