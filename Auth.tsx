@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Brain, Mail, Lock, Chrome, User } from "lucide-react";
-import { auth, googleProvider } from "../lib/firebase";
+import { auth } from "./firebase";
 import { signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 export const Auth = () => {
