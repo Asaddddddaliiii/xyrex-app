@@ -11,7 +11,7 @@ import { PostDetailPage } from "./PostDetail";
 import { ThoughtExplorerPage } from "./ThoughtExplorer";
 import { Auth } from "./Auth";
 import { Header } from "./Header";
-import { auth, db, handleFirestoreError, OperationType } from "./lib/firebase";
+import { auth, db, handleFirestoreError, OperationType } from "./firebase";
 import { onAuthStateChanged, signOut, User as FirebaseUser } from "firebase/auth";
 import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
 import { ErrorBoundary } from "./ErrorBoundary";
