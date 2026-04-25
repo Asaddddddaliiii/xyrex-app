@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Brain, MessageSquare, Compass, User, ChevronRight, LogOut, Plus, Telescope, History } from "lucide-react";
-import { cn } from "./lib/utils";
+import { cn } from "./src/lib/utils";
 import { DecisionPage } from "./pages/Decision";
 import { ProblemPage } from "./pages/Problem";
 import { ExplorePage } from "./pages/Explore";
